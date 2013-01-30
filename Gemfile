@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'mysql2'
+gem "mongoid", "~> 3.0.0"
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0", :group => :production
 gem "haml", ">= 3.1.7"
