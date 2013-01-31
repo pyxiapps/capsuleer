@@ -1,3 +1,11 @@
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    = content_tag :div, msg, :id => "flash_#{name}"
+.row-fluid
+  .span4
+  .span4
+    - flash.each do |name, msg|
+      - if msg.is_a?(String)
+        .alert
+          = button_tag :type => "button", :class => "close", 'data-dismiss' => "alert" do
+            &times;
+          %h4
+            = msg
+  .span4
