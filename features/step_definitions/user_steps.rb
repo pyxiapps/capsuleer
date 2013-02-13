@@ -150,7 +150,7 @@ Then /^I see an unconfirmed account message$/ do
 end
 
 Then /^I see a successful sign in message$/ do
-  page.should have_content "Signed in successfully."
+  page.should have_content "Logout"
 end
 
 Then /^I should see a successful sign up message$/ do

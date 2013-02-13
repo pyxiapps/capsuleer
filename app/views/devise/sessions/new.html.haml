@@ -1,22 +1,35 @@
-.row-fluid
-  .span3
-  .span6
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal well" } ) do |f|
-      %legend
-        Log in
-      %div.control-group
-        = f.label :email, :class => 'control-label', :for => 'user_email'
-        .controls
-          = f.email_field :email, :autofocus => true, :placeholder => 'Email', :class => 'span10'
-      %div.control-group
-        = f.label :password, :class => 'control-label', :for => 'user_password'
-        .controls
-          = f.password_field :password, :placeholder => 'Password', :class => 'span10'
-      - if devise_mapping.rememberable?
-        %div.form-actions
-          = f.label :remember_me, :class => 'checkbox' do
-            = f.check_box :remember_me
-            Remember me
-          = f.submit "Sign in", :class => 'btn'
-        = render "devise/shared/links"
-  .span3
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-vertical", :id => "loginform" } ) do |f|
+  %p
+    Enter email and password to continue
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-envelope
+        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-lock
+        = f.password_field :password, :placeholder => 'Password'
+  .form-actions
+    %span.pull-left
+      - if devise_mapping.recoverable? && controller_name != 'passwords'
+        = link_to "Forgot your password?", "#", :class => "flip-link", :id => "to-recover"
+    %span.pull-right
+      = f.submit "Sign in", :class => 'btn btn-inverse'
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-vertical", :id => "recoverform" } ) do |f|
+  %p
+    Enter your e-mail address below and we will send you instructions how to recover a password
+  .control-group
+    .controls 
+      .input-prepend
+        %span.add-on
+          %i.icon-envelope
+        = f.email_field :email, :autofocus => true, :placeholder => 'Email'
+  .form-actions
+    %i.pull-left
+      = link_to "< Back to login", "#", :class => "flip-link", :id => "to-login"
+    %i.pull-right
+      = f.submit "Recover", :class => 'btn btn-inverse'

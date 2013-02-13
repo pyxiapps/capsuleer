@@ -4,18 +4,21 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Capsuleer"
       %meta{:content => content_for?(:description) ? yield(:description) : "Capsuleer", :name => "description"}
-        = stylesheet_link_tag "application", :media => "all"
+        = stylesheet_link_tag "bootstrap.min", :media => "all"
+        = stylesheet_link_tag "bootstrap-responsive.min", :media => "all"
+        = stylesheet_link_tag "fullcalendar", :media => "all"
+        = stylesheet_link_tag "unicorn.main", :media => "all"
+        = stylesheet_link_tag "unicorn.grey.css", :media => "all", :class => "skin-color"
         = javascript_include_tag "application"
         = csrf_meta_tags
         = yield(:head)
-  %body{:class => "#{controller_name} #{action_name}"}
-    .container-fluid
-      #header.row-fluid
-        = render 'shared/header'
-        = render 'layouts/navigation'
-        = render 'layouts/messages'
-      #main.row-fluid{:role => "main"}
+  %body
+    = render "shared/header"
+    = render "shared/search"
+    = render "shared/user_nav"
+    = render "shared/main_side_bar"
+    #content
+      = render "shared/content_header"
+      = render "shared/breadcrumbs"
+      .container-fluid
         = yield
-      #footer.row-fluid
-        = render 'shared/footer'
-    / ! end of #container

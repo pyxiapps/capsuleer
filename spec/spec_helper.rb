@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 
+require 'pp'
 require 'simplecov'
 require 'simplecov-rcov'
 
@@ -65,8 +66,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.include Mongoid::Matchers
   
   config.before(:suite) do
+    DatabaseCleaner[:mongoid].strategy = :truncation
     DatabaseCleaner.strategy = :truncation
   end
   config.before(:each) do
@@ -76,3 +80,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+
+require 'mock_config'
+

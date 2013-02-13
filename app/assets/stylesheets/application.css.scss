@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
 */
 // .brand {
 //   float: left;
@@ -35,4 +34,4 @@
 //   background-color: #FCC;
 //   border: solid 1px #C66;
 // }
-@import "bootstrap";
+// @import "bootstrap";

@@ -1,0 +1,24 @@
+#user-nav.navbar.navbar-inverse
+  %ul.nav.btn-group
+    %li.btn.btn-inverse
+      = link_to "#" do
+        %i.icon.icon-user
+        %span.text
+          Profile
+    %li.btn.btn-inverse.dropdown#menu-messages
+      = link_to "data-toggle" => "dropdown", "data-target" => "#menu-messages", :class => "dropdown-toggle" do
+        %i.icon.icon-envelope
+        %span.text
+          Messages
+        %span.label.label-important
+          5
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          = link_to "New Message", "#", :class => "sAdd"
+        %li
+          = link_to "Inbox", "#", :class => "sInbox"
+        %li
+          = link_to "Outbox", "#", :class => "sOutbox"
+        %li
+          = link_to "sTrash", "#", :class => "sTrash"

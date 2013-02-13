@@ -1,0 +1,17 @@
+#sidebar
+  = link_to "#", :class => "visible-phone" do
+    %i.icon.icon-home
+    Dashboard
+  %ul
+    %li.active
+      = link_to "/" do
+        %i.icon.icon-home
+        %span
+          Dashboard
+    %li.submenu
+      = link_to "#" do
+        %i.icon.icon-th-list
+        %span
+          Form Elements
+        %span.label
+          3
