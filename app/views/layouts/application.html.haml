@@ -9,7 +9,8 @@
         = stylesheet_link_tag "fullcalendar", :media => "all"
         = stylesheet_link_tag "unicorn.main", :media => "all"
         = stylesheet_link_tag "unicorn.grey.css", :media => "all", :class => "skin-color"
-        = javascript_include_tag "application"
+        = javascript_include_tag "application","excanvas.min","jquery.ui.custom","jquery.peity.min","fullcalendar.min","unicorn","unicorn.dashboard"
+        / ,"jquery.flot.resize.min","jquery.flot.min.js"
         = csrf_meta_tags
         = yield(:head)
   %body

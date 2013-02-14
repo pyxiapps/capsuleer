@@ -60,7 +60,7 @@ class Character
     # Set the character id to define which character to perform operation with
     conn.set(:character_id => self.character_id)
     conn.character.character_sheet
-  end
+  end 
 
   def save_character_sheet_information(char_sheet)
     # Loop thru all available fields from this model

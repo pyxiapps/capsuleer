@@ -23,9 +23,7 @@ group :assets do
 end
 
 group :test do
-  gem "rspec-rails", ">= 2.12.2"
   gem 'mongoid-rspec'
-  gem "factory_girl_rails", ">= 4.1.0"
   gem "database_cleaner", ">= 0.9.1"
   gem "email_spec", ">= 1.4.0"
   gem "launchy", ">= 2.1.2"
@@ -33,6 +31,7 @@ group :test do
   gem "simplecov", :require => false
   gem "simplecov-rcov", :require => false
   gem "cucumber-rails", ">= 1.3.0", :require => false
+  gem "faker"
 end
 
 group :development do
@@ -43,4 +42,12 @@ group :development do
   gem "ruby_parser", ">= 3.1.1"
   gem "quiet_assets", ">= 1.0.1"
   gem 'meta_request', '0.2.1'
+end
+
+group :test, :development do
+  gem "rspec-rails", ">= 2.12.2"
+  gem "factory_girl_rails", ">= 4.1.0"
+  gem "guard"
+  gem 'guard-spork'
+  gem 'guard-rspec'
 end

@@ -15,12 +15,12 @@ describe Character do
 
   include_context "shared character attributes"
 
-  it "requires a character name" do
+  it "Requires a character name" do
     c = Character.new(:name => "", :character_id => $character_id)
     c.valid?.should_not be_true
   end
 
-  it "requires a character id" do
+  it "Requires a character id" do
     c = Character.new(:name => "Theazy CS", :character_id => "")
     c.valid?.should_not be_true
   end
@@ -33,16 +33,16 @@ describe Character do
       @char = @account.characters.first
     end
 
-    it "can fetch character sheet information" do
+    it "Fetches character sheet information" do
       char_sheet = @char.fetch_character_sheet_information
       char_sheet.should_not be_nil
     end
 
-    it "can retrieve character sheet information and save into the character record" do
+    it "Retrieves character sheet information and save into the character record" do
       @char.fetch_and_save_character_sheet_information.should be_true
     end
 
-    it "saves the correct data into its respective database fields" do
+    it "Saves the correct data into its respective database fields" do
       @char.fetch_and_save_character_sheet_information.should be_true
       char_sheet = @account.get_api_conn.character.character_sheet
       @char.fields.keys.each do |field| 
@@ -58,26 +58,23 @@ describe Character do
       end
     end
 
-    it "can retrieve character faction war stats and save it" do
-
-    end
-
-    # it "can retrieve character medals and save it"
-    # it "can retrieve skill in training information and save it"
-    # it "can retrieve skill queue information and save it"
-    # it "can retrieve standings information and save it"
-    # it "can retrieve account balance information and save it"
-    # it "can retrieve assets list and save it"
-    # it "can retrieve industry jobs and save it"
-    # it "can retrieve kill logs information and save it"
-    # it "can retrieve mailing lists information and save it"
-    # it "can retrieve mail messages and save it"
-    # it "can retrieve market orders and save it"
-    # it "can retrieve notifications and save it"
-    # it "can retrieve research information and save it"
-    # it "can retrieve wallet journal information and save it"
-    # it "can retrieve journal entries and save it"
-    # it "can retrieve wallet transactions and save it"
+    it "retrieves character faction war stats and save it"
+    it "Retrieves character medals and save it"
+    it "Retrieves skill in training information and save it"
+    it "Retrieves skill queue information and save it"
+    it "Retrieves standings information and save it"
+    it "Retrieves account balance information and save it"
+    it "Retrieves assets list and save it"
+    it "Retrieves industry jobs and save it"
+    it "Retrieves kill logs information and save it"
+    it "Retrieves mailing lists information and save it"
+    it "Retrieves mail messages and save it"
+    it "Retrieves market orders and save it"
+    it "Retrieves notifications and save it"
+    it "Retrieves research information and save it"
+    it "Retrieves wallet journal information and save it"
+    it "Retrieves journal entries and save it"
+    it "Retrieves wallet transactions and save it"
   end
 
 end

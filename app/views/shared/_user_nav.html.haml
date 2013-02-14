@@ -6,12 +6,10 @@
         %span.text
           Profile
     %li.btn.btn-inverse.dropdown#menu-messages
-      = link_to "data-toggle" => "dropdown", "data-target" => "#menu-messages", :class => "dropdown-toggle" do
+      = link_to "/messages", {"data-toggle" => "dropdown", "data-target" => "#menu-messages", :class => "dropdown-toggle"} do
         %i.icon.icon-envelope
-        %span.text
-          Messages
-        %span.label.label-important
-          5
+        %span.text Messages          
+        %span.label.label-important 5
         %b.caret
       %ul.dropdown-menu
         %li
@@ -22,3 +20,8 @@
           = link_to "Outbox", "#", :class => "sOutbox"
         %li
           = link_to "sTrash", "#", :class => "sTrash"
+    %li.btn.btn-inverse
+      = link_to destroy_user_session_path, :method => :delete do
+        %i.icon.icon-share-alt
+        %span.text
+          Logout
