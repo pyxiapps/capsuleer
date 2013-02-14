@@ -5,40 +5,18 @@ require 'pp'
 require 'simplecov'
 require 'simplecov-rcov'
 require 'spork'
-
-class SimpleCov::Formatter::MergedFormatter
-  def format(result)
-    SimpleCov::Formatter::HTMLFormatter.new.format(result)
-    SimpleCov::Formatter::RcovFormatter.new.format(result)
-  end
-end
-
-SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
-SimpleCov.start 'rails' do 
-  add_filter "/vendor/"
-  add_filter "/config/"
-  add_filter "/spec/"
-  add_filter "/features/"
-  add_filter "/test/"
-
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Models', 'app/models'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Libraries', 'lib'
-end
-
-
-
-
-
+require 'simplecov_config'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'email_spec'
 require 'rspec/autorun'
+require 'mock_config'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
 Spork.prefork do
   RSpec.configure do |config|
     config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -75,7 +53,6 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
-
     config.include Mongoid::Matchers
     
     config.before(:suite) do
@@ -90,11 +67,6 @@ Spork.prefork do
     end
   end
 end
-
 Spork.each_run do
   FactoryGirl.reload
 end
-
-
-require 'mock_config'
-
