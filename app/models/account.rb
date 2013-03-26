@@ -14,7 +14,7 @@ class Account
   after_save :update_character_list
 
   def is_working_auth_key?
-    (@api ||= self.get_api_conn) != false
+    (@api ||= get_api_conn)
   end
 
   def get_api_conn
@@ -23,7 +23,7 @@ class Account
       # Errors will be raised once this method is triggered , but aside from that
       # this call is not meant for anything else.
       @api.account.characters
-    rescue
+    rescue Eve::Errors::AuthenticationError
       return false
     end
     @api

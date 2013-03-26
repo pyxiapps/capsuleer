@@ -32,6 +32,7 @@ group :test do
   gem "simplecov-rcov", :require => false
   gem "cucumber-rails", ">= 1.3.0", :require => false
   gem "faker"
+  gem "webmock"
 end
 
 group :development do
@@ -47,6 +48,7 @@ end
 group :test, :development do
   gem "rspec-rails", ">= 2.12.2"
   gem "factory_girl_rails", ">= 4.1.0"
+  gem "rb-fsevent", '~> 0.9.1'
   gem "guard"
   gem 'guard-spork'
   gem 'guard-rspec'
