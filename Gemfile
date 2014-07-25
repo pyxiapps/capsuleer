@@ -12,7 +12,7 @@ gem "figaro", ">= 0.5.3"
 gem "unicorn", ">= 4.3.1", :group => [:development, :test]
 
 # Eve online related
-gem 'eve', :path => "vendor/gems/eve"
+gem 'eve'
 gem 'sc-core-ext'
 
 group :assets do
